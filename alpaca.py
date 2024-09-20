@@ -121,8 +121,7 @@ def get_earnings_calendar():
         stock_symbols = []
         if data.get('data') and isinstance(data['data'].get('rows'), list):
             for item in data['data']['rows']:
-                if item.get('time') == 'time-after-hours':
-                    stock_symbols.append(item.get('symbol'))
+                stock_symbols.append(item.get('symbol'))
 
         return stock_symbols
     else:
@@ -169,10 +168,10 @@ def get_change_after_earnings(tickers):
 # Main function to get upcoming earnings for tomorrow
 def main():
     buys = []
-    #stock_symbols = get_earnings_calendar()
-    #print(stock_symbols)
-    #buys = get_change_after_earnings(stock_symbols)
-    buys.append('PLAY')
+    stock_symbols = get_earnings_calendar()
+    print(stock_symbols)
+    buys = get_change_after_earnings(stock_symbols)
+    #buys.append('PLAY')
     # Assuming `api` is an initialized trading API client (e.g., Alpaca API client)
     symbol = buys[0]  # Stock symbol to buy
     quantity = (50000 // api.get_latest_trade(symbol).price)     # Number of shares bought

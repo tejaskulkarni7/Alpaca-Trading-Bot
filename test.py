@@ -4,6 +4,7 @@ import requests
 from pprint import pprint
 import datetime as datetime
 import yfinance as yf
+import configparser
 
 
 headers = {

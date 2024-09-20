@@ -4,8 +4,18 @@ import requests
 from pprint import pprint
 import datetime as datetime
 import yfinance as yf
+import configparser
 
+def get_alpaca_config():
+    config = configparser.ConfigParser()
+    config.read('alpaca_config.ini')
+    return config.get('alpaca_api', 'client_id'), config.get('alpaca_api', 'secret_key'), config.get('alpaca_api', 'base_url')
 
+# Get Alpaca API credentials
+client_id, secret_key, base_url = get_alpaca_config()
+
+# Initialize the Alpaca API client
+api = tradeapi.REST(client_id, secret_key, base_url=base_url)
 
 
 from decimal import Decimal, ROUND_UP
