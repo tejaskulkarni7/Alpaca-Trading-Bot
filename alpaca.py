@@ -8,7 +8,7 @@ import configparser
 
 def get_alpaca_config():
     config = configparser.ConfigParser()
-    config.read('alpaca_config.ini')
+    config.read('config.ini')
     return config.get('alpaca_api', 'client_id'), config.get('alpaca_api', 'secret_key'), config.get('alpaca_api', 'base_url')
 
 # Get Alpaca API credentials
@@ -177,7 +177,7 @@ def main():
     quantity = (50000 // api.get_latest_trade(symbol).price)     # Number of shares bought
 
     # Call the place_order function
-    place_order_and_bracket(api, symbol, quantity)
+    #place_order_and_bracket(api, symbol, quantity)
 
     
 #main
