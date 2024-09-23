@@ -21,7 +21,7 @@ api = tradeapi.REST(client_id, secret_key, base_url=base_url)
 
 
 # Function to place an order
-def place_order_and_bracket(api, symbol, quantity, side='buy', order_type='market', time_in_force='gtc'):
+def place_order_and_bracket(api, symbol, quantity, side='buy', order_type='market', time_in_force='opg'):
     try:
         # Place the initial market-on-open order
         order = api.submit_order(
