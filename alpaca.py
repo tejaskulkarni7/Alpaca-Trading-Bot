@@ -152,9 +152,10 @@ def get_change_after_earnings(tickers):
         else:
             print(f"No after-hours data found for {ticker}")
 
-        closing_price = day_data['Close'].iloc[0]
+        
         # Calculate after-hours percentage change
         if post_market_price:
+            closing_price = day_data['Close'].iloc[0]
             percent_change = ((post_market_price - closing_price) / closing_price) * 100
             if percent_change > 5:
                 buys.append(ticker)
