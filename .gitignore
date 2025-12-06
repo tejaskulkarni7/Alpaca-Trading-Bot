@@ -1,1 +1,4 @@
 config.ini
+config_real.ini
+credentials.json
+/alpaca/*
